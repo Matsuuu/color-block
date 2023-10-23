@@ -40,7 +40,7 @@ const server = http.createServer(async (req, res) => {
 
         if (!colorRegex.test(colorHex)) {
             res.writeHead(401, { "Content-Type": "application/json" });
-            res.end(JSON.stringify({ message: "Please provide a color HEX code." }));
+            res.end(JSON.stringify({ message: "Please provide a color HEX code.", examples: [`${url.protocol}//${url.host}/FF6D00`, `${url.protocol}//${url.host}/55AA44?x=80&y=40`] }));
             return;
         }
 
