@@ -5,14 +5,13 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node color-blocker.js",
-    "vercel-build": "./vercel-setup.sh"
+    "start": "node color-blocker.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "canvas": "^2.11.2"
+    "@napi-rs/canvas": "^0.1.44"
   },
   "devDependencies": {
     "@types/node": "^20.8.7"
