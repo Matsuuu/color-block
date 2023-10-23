@@ -5,8 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "npm run start:no-resolve -- --node-resolve",
-    "start:no-resolve": "web-dev-server --open --watch --app-index index.html"
+    "start": "node color-blocker.js"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +14,6 @@
     "canvas": "^2.11.2"
   },
   "devDependencies": {
-    "@types/node": "^20.8.7",
-    "@web/dev-server": "^0.2.3"
+    "@types/node": "^20.8.7"
   }
 }

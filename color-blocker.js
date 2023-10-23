@@ -1,16 +1,16 @@
 import http from "http";
 import { createCanvas } from "canvas";
-import { writeFileSync } from "fs";
+
+const width = 80;
+const height = 80;
+
+const canvas = createCanvas(width, height);
+const context = canvas.getContext("2d");
 
 /**
  * @param {string} color
  */
 function getColorBlockImage(color) {
-    const width = 80;
-    const height = 80;
-
-    const canvas = createCanvas(width, height);
-    const context = canvas.getContext("2d");
 
     context.fillStyle = color;
     context.fillRect(0, 0, width, height);
