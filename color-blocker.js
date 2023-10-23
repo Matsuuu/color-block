@@ -1,19 +1,29 @@
 import http from "http";
 import { createCanvas } from "@napi-rs/canvas";
 
-const width = 80;
-const height = 80;
+const DEFAULT_WIDTH = 80;
+const DEFAULT_HEIGHT = 80;
 
-const canvas = createCanvas(width, height);
+const canvas = createCanvas(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 const context = canvas.getContext("2d");
 
 /**
  * @param {string} color
+ * @param {number} x
+ * @param {number} y
  */
-function getColorBlockImage(color) {
+function getColorBlockImage(color, x, y) {
+    console.log({ color, x, y })
+
+    if (x !== canvas.width) {
+        canvas.width = x;
+    }
+    if (y !== canvas.height) {
+        canvas.height = y;
+    }
 
     context.fillStyle = color;
-    context.fillRect(0, 0, width, height);
+    context.fillRect(0, 0, x, y);
 
     const buffer = canvas.toBuffer("image/png");
     return buffer;
@@ -34,8 +44,14 @@ const server = http.createServer(async (req, res) => {
             return;
         }
 
+        const queryParams = url.searchParams;
+        let x = parseInt(queryParams.get("x"));
+        let y = parseInt(queryParams.get("y"));
+        if (isNaN(x)) x = 80;
+        if (isNaN(y)) y = 80;
+
         res.writeHead(200, { "Content-Type": "image/png" });
-        res.write(getColorBlockImage(colorHex));
+        res.write(getColorBlockImage(colorHex, x, y));
         res.end();
         return;
     } else {
