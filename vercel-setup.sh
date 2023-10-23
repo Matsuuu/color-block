@@ -1,5 +1,7 @@
 yum install wget
 
+yum install libuuid-devel libmount-devel && cp /lib64/{libuuid,libmount,libblkid}.so.1 node_modules/canvas/build/Release/
+
 wget https://github.com/NixOS/patchelf/archive/refs/tags/0.17.0.tar.gz
 tar -xf 0.17.0.tar.gz
 cd patchelf-0.17.0
