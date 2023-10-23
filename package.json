@@ -1,0 +1,21 @@
+{
+  "name": "project-base",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run start:no-resolve -- --node-resolve",
+    "start:no-resolve": "web-dev-server --open --watch --app-index index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^2.11.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.7",
+    "@web/dev-server": "^0.2.3"
+  }
+}
