@@ -1,5 +1,5 @@
 import http from "http";
-import { createCanvas } from "canvas";
+import { createCanvas } from "./node_modules/canvas/index.js";
 
 const width = 80;
 const height = 80;
