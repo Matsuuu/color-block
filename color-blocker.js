@@ -23,13 +23,19 @@ const server = http.createServer(async (req, res) => {
 
     if (req.method === "GET") {
         const url = new URL(req.url, `http://${req.headers.host}`);
-        console.log(url);
         const pathname = url.pathname;
-        const color = "#" + pathname.substring(1, 7);
-        console.log("COLOR: ", color);
+        const color = pathname.substring(1, 7);
+        const colorHex = "#" + color;
+        const colorRegex = new RegExp("^#(?:[0-9a-fA-F]{3}){1,2}$");
+
+        if (!colorRegex.test(colorHex)) {
+            res.writeHead(401, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ message: "Please provide a color HEX code." }));
+            return;
+        }
 
         res.writeHead(200, { "Content-Type": "image/png" });
-        res.write(getColorBlockImage(color));
+        res.write(getColorBlockImage(colorHex));
         res.end();
         return;
     } else {
