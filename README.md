@@ -1,8 +1,5 @@
-# Basic project setup
+# Colors.pics
 
-- Web Dev Server
-- Lit
-- Suunta
-- JSConfig
-- Prettier
-- Debug Bubble
+A simple site to create colored blocks for your everyday needs. GitHub ReadME's, etc.
+
+[Check it out!](https://colors.pics/FF6D00)
