@@ -5,7 +5,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node color-blocker.js"
+    "start": "node color-blocker.js",
+    "vercel-build": "./vercel-setup.sh"
   },
   "keywords": [],
   "author": "",
