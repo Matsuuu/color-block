@@ -1,4 +1,4 @@
-import http from "http";
+ import http from "http";
 import { createCanvas } from "@napi-rs/canvas";
 
 const DEFAULT_WIDTH = 80;
@@ -47,8 +47,8 @@ const server = http.createServer(async (req, res) => {
         const queryParams = url.searchParams;
         let x = parseInt(queryParams.get("x"));
         let y = parseInt(queryParams.get("y"));
-        if (isNaN(x)) x = 80;
-        if (isNaN(y)) y = 80;
+        if (isNaN(x)) x = DEFAULT_WIDTH;
+        if (isNaN(y)) y = DEFAULT_HEIGHT;
 
         res.writeHead(200, { "Content-Type": "image/png" });
         res.write(getColorBlockImage(colorHex, x, y));
